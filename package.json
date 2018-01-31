@@ -1,0 +1,27 @@
+{
+  "name": "top-chef",
+  "version": "0.1.0",
+  "description": "A module that gets the best deal for a given french starred restaurant.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmezouar/top-chef.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmezouar/top-chef/issues"
+  },
+  "homepage": "https://github.com/cmezouar/top-chef#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
