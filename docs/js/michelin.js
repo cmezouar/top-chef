@@ -18,26 +18,43 @@ app.get('/scrape', function(req, res){
            var $ = cheerio.load(html);
            
            var name, stars, details, price_interval;
-           var json = {name : " ", stars : " ", details = " ", price_interval = " "};
+           var json = [{name : " ", stars : " ", details : " ", price_interval : " "}];
+           //var restaurant={name : " ", stars : " ", details : " ", price_interval : " "};
 
            //using the unique div class as a starting point
            $('.poi_card-display-title').filter(function(){
 
+            //console.log($(this));
+
             var data = $(this);
-            name = data.children().first().text();
+            
+            //console.log(data.text());
 
-            json.name = name;
+            var names = [];
+            names.push(data.text());
+            
+            names.forEach(element => {
+                console.log(element);
+               // restaurant.name = element;
+                var rest = {
+                    name : element
 
+                };
+                json.push(rest);
+            });
 
+            console.log(names);
 
+           
+
+            fs.writeFile('starred_restaurants.json', JSON.stringify(json, null, 4), function(err){
+                console.log('File successfully written! - Check your project directory for the starred_restaurants.json file');   
+                res.send('Check your console');
+            })
            })
         }
 
-        fs.writeFile('starred_restaurants.json', JSON.stringify(json, null, 4), function(err){
-            console.log('File successfully written! - Check your project directory for the starred_restaurants.json file');   
-        })
         
-        res.send('Check your console');
 
 
     });
@@ -50,7 +67,9 @@ app.get('/scrape', function(req, res){
 
 
 
-app.listen('8081');
+app.listen('8081', ()=> {
+    console.log('Running server')
+});
 
 exports = module.exports = app;
 
