@@ -4,6 +4,7 @@ const request = require('request-promise'),
     fs = require('fs');
 
 var app = express();
+//faire une boucle for pour boucler sur toutes les pages 
 
 app.get('/scrape', function (req, res) {
     //All the web scraping
@@ -21,10 +22,14 @@ app.get('/scrape', function (req, res) {
             var json = [{ name: "", price: "" }];
             var names = [];
             var prices = [];
+            var stars = [];
+            var locations = [];
+
 
 
 
             //using the unique div class as a starting point
+            //scraping the names
             $('.poi_card-display-title ').filter(function () {
 
                 //console.log($(this));
@@ -44,6 +49,10 @@ app.get('/scrape', function (req, res) {
                 prices.push(data.text());
 
             })
+
+            //scraping the stars
+
+            //scraping
 
 
             names.forEach(n => {
