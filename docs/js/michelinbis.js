@@ -56,6 +56,13 @@ restaurants_url.forEach(u =>{
             })
 
             //scraping the stars (by making a request on the class name)
+            $('.content-wrapper').filter(function(){
+                var data = $(this);
+                console.log($(this));
+                stars.push(data.text());
+                console.log(data.text());
+
+            })
            
 
             //scraping the locations
@@ -95,6 +102,11 @@ restaurants_url.forEach(u =>{
             })
 
             //adding stars
+            stars.forEach(element =>{
+                json.forEach(r =>{
+                    r.price=element[0];
+                })
+            })
 
             //adding adresses
             streets.forEach(element =>{
