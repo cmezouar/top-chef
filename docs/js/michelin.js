@@ -94,7 +94,7 @@ app.get('/scrape', function (req, res) {
 
 app.listen('8081', () => {
     console.log('Running server')
-});
+})
 
 exports = module.exports = app;
 
